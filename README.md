@@ -1,11 +1,9 @@
-frest
+Offline_app
 =====
 
-REST with Flask
+A sample html page rendered by flask service, the content of which can work offline.
 
-A sample Flask API to return a hardcoded json (to be replaced by db/file drawn jsons called deeds) and an html page to display the data with ajax.
-
-Installation
+server Installation
 ------------
 pip install flask
 
