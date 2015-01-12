@@ -5,6 +5,35 @@
 <link
 	href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"
 	rel="stylesheet">
+<script>
+	function clickCounter() {
+		if (typeof (Storage) !== "undefined") {
+			if (localStorage.clickcount) {
+				localStorage.clickcount = Number(localStorage.clickcount) + 1;
+			} else {
+				localStorage.clickcount = 1;
+			}
+			document.getElementById("result1").innerHTML = "You have clicked the button "
+					+ localStorage.clickcount + " time(s).";
+		} else {
+			document.getElementById("result1").innerHTML = "Sorry, your browser does not support web storage...";
+		}
+	}
+</script>
+<script>
+function clickCounter1() {
+    if(typeof(Storage) !== "undefined") {
+        if (sessionStorage.clickcount) {
+            sessionStorage.clickcount = Number(sessionStorage.clickcount)+1;
+        } else {
+            sessionStorage.clickcount = 1;
+        }
+        document.getElementById("result2").innerHTML = "You have clicked the button " + sessionStorage.clickcount + " time(s) in this session.";
+    } else {
+        document.getElementById("result2").innerHTML = "Sorry, your browser does not support web storage...";
+    }
+}
+</script>
 <script type=text/javascript>
 	$(function() {
 		$('a#get_deeds').bind(
@@ -26,7 +55,7 @@
 <style>
 body {
 	background:
-		url(http://157.241.102.205:8000/static/status/images/background11.jpg);
+		url(http://th00.deviantart.net/fs71/PRE/f/2012/222/6/5/rainbow_dash_light_wallpaper_by_nsaiuvqart-d5aj4l5.png);
 	background-size: 100%;
 	background-repeat: no-repeat;
 }
@@ -49,12 +78,12 @@ p {
 	color: white;
 }
 </style>
-<script src="http://html5demos.com/js/h5utils.js"></script>
+<script src="{{ url_for('static', filename='h5utils.js') }}"></script>
 </head>
 <body>
 	<article>
 		<p>
-			Current network status: <span id="status">checking...</span>
+			Current Network Status: <span id="status">checking...</span>
 		</p>
 		<!--ol id="state"></ol-->
 	</article>
@@ -105,5 +134,10 @@ p {
 		</div>
 	</div>
 	<h2 class="result" id="result"></h2>
+	<p><button onclick="clickCounter()" type="button">Local Store!</button></p>
+	<h2 id="result1"></h2>
+	<p><button onclick="clickCounter1()" type="button">Session Store!</button></p>
+	<h2 id="result2"></h2>
+	
 </body>
 </html>

@@ -1,0 +1,13 @@
+CACHE MANIFEST
+# 2014-02-21 v1.0.0
+/landing1
+/static/jquery.min.js
+/static/h5utils.js
+//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js
+//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css
+
+NETWORK:
+*
+
+FALLBACK:
+/ /fallback

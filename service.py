@@ -1,4 +1,5 @@
 from flask import Flask, render_template, jsonify
+from flask import make_response
 
 service = Flask(__name__)
 
@@ -6,6 +7,19 @@ service = Flask(__name__)
 @service.route('/')
 def index():
     return render_template('index.html')
+
+
+@service.route('/manifest')
+def manifest():
+    res = make_response(render_template('offline.appcache'), 200)
+    res.headers["Content-Type"] = "text/cache-manifest"
+    return res
+
+
+@service.route('/fallback')
+def fallback():
+    res = make_response(render_template('fallback.html'), 201)
+    return res
 
 
 @service.route('/xxx')
